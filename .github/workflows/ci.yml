@@ -33,8 +33,8 @@ jobs:
       - name: Verify build output
         run: |
           if [ -d ".next" ]; then
-            echo "✅ Build output (.next) exists"
+            echo "Build output (.next) exists"
           else
-            echo "❌ Build output (.next) missing"
+            echo "Build output (.next) missing"
             exit 1
           fi
