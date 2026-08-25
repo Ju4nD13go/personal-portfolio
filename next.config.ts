@@ -8,8 +8,7 @@ const nextConfig = {
   //     { protocol: "https", hostname: "**" },
   //   ],
   // },
-  // Comprime HTML de respuesta
-  compressHtml: true,
+  
   // Eliminar logs de desarrollo en producción
   reactStrictMode: true,
 };
