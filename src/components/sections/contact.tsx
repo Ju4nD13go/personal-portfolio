@@ -37,17 +37,52 @@ export function Contact() {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col items-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="transition-all duration-200 hover:scale-[1.03] hover:brightness-110 active:scale-95"
-              >
-                <a href={`mailto:${content.profile.email}`}>
-                  <Mail data-icon="inline-start" />
-                  {content.profile.email}
-                </a>
-              </Button>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col items-center gap-3 w-full max-w-md">
+                {/* Formulario de contacto via Formspree */}
+                <form
+                  action="https://formspree.io/f/xzeplvdq"
+                  method="POST"
+                  className="w-full space-y-3"
+                  noValidate
+                >
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    className="w-full px-4 py-2 rounded-lg border border-border/60 bg-background/50 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    rows={4}
+                    placeholder="Escribime tu consulta..."
+                    className="w-full px-4 py-2 rounded-lg border border-border/60 bg-background/50 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-none"
+                    required
+                  ></textarea>
+                  <Button
+                    type="submit"
+                    asChild
+                    size="lg"
+                    className="w-full transition-all duration-200 hover:scale-[1.03] hover:brightness-110 active:scale-95"
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      <span>Enviar</span>
+                    </span>
+                  </Button>
+                </form>
+              </div>
+
+              <div className="flex items-center gap-2 mt-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="transition-all duration-200 hover:scale-[1.03] hover:brightness-110 active:scale-95"
+                >
+                  <a href={`mailto:${content.profile.email}`}>
+                    <Mail data-icon="inline-start" />
+                    {content.profile.email}
+                  </a>
+                </Button>
                 <Button
                   asChild
                   variant="outline"

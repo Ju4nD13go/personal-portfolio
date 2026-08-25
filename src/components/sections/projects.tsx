@@ -74,7 +74,13 @@ export function Projects() {
                         variant="outline"
                         className="gap-1 text-muted-foreground"
                       >
-                        <CircleDot className="size-3 animate-pulse text-amber-500" />
+                        <CircleDot
+                          className={`size-3 animate-pulse ${
+                            project.demoUrl
+                              ? "text-emerald-500"
+                              : "text-amber-500"
+                          }`}
+                        />
                         {project.status}
                       </Badge>
                     </div>

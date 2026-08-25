@@ -45,7 +45,7 @@ export type Dictionary = {
     title: string;
     heading: string;
     subtitle: string;
-    status: string;
+    statuses: Record<ProjectId, string>;
     liveSite: string;
     viewOnGitHub: string;
     items: Record<ProjectId, string>;
@@ -124,7 +124,11 @@ export const dictionaries: Record<Lang, Dictionary> = {
       heading: "Lo que estoy construyendo",
       subtitle:
         "Una selección de proyectos que estoy desarrollando activamente — desde monitoreo de agua hasta plataformas de agendamiento.",
-      status: "En desarrollo",
+      statuses: {
+        ["gota-azul"]: "En vivo",
+        ["agenda-saas"]: "En desarrollo",
+        ["merito-tracker"]: "En línea",
+      },
       liveSite: "Sitio en vivo",
       viewOnGitHub: "Ver en GitHub",
       items: {
@@ -217,7 +221,11 @@ export const dictionaries: Record<Lang, Dictionary> = {
       heading: "What I'm building",
       subtitle:
         "A selection of projects I'm actively developing — from water monitoring to scheduling platforms.",
-      status: "In Development",
+      statuses: {
+        ["gota-azul"]: "Live",
+        ["agenda-saas"]: "In Development",
+        ["merito-tracker"]: "In Production",
+      },
       liveSite: "Live Site",
       viewOnGitHub: "View on GitHub",
       items: {

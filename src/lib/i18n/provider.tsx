@@ -161,7 +161,7 @@ function buildContent(lang: Lang): Content {
       ...projects.map((project) => ({
         ...project,
         description: d.projects.items[project.id],
-        status: d.projects.status,
+        status: d.projects.statuses[project.id],
       })),
     ],
     skillCategories: [

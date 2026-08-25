@@ -54,7 +54,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  // Favicon y manifest
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
+
+// SEO scripts embedded
+const lanScript = `(function(){try{var l=localStorage.getItem("lang");if(l!=="es"&&l!=="en"){l=(navigator.language||"").toLowerCase().startsWith("es")?"es":"en"}document.documentElement.lang=l}catch(e){}})();(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"}document.documentElement.classList.toggle("dark",t==="dark")}catch(e){}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -66,9 +75,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var l=localStorage.getItem("lang");if(l!=="es"&&l!=="en"){l=(navigator.language||"").toLowerCase().startsWith("es")?"es":"en"}document.documentElement.lang=l}catch(e){}})();(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"}document.documentElement.classList.toggle("dark",t==="dark")}catch(e){}})()`,
+            __html: lanScript,
           }}
         />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.svg" />
       </head>
       <body className="min-h-full flex flex-col">
         <Cursor />
